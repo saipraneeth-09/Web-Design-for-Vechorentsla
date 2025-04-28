@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VECHORENT</title>
+    <link rel="stylesheet" href="travel.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>VECHORENTALS</h1>
+        <nav>
+            <a href="#About">About </a>
+            <a href="#available-vehicles">Available Vehicles</a>
+            <a href="Payment Details">Payment Details</a>
+            <a href="#contact">Contact Us</a>
+
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <p><i>Explore our range of self-drive vehicles available for your next journey.<br>Experience the freedom of travel with our self-drive vehicle service,<br>offering a wide range of well-maintained cars for flexible<br> and hassle-free journeys. Enjoy the convenience, safety, and flexibility to <br>explore at your own pace<i></p>
+    </section>
+
+    <!-- Available Vehicles Section -->
+    <section id="available-vehicles">
+        <h2>Available Vehicles</h2>
+        <div class="vehicle-list">
+            <!-- Compact 4-Seater Vehicle -->
+            <div class="vehicle-card">
+                <img src="https://th.bing.com/th/id/OIP.v5Pbz1VtRKXDbvwFkoB26gHaEK?w=333&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7.jpg" alt="Compact 4-Seater">
+                <h3>Compact 4-Seater</h3>
+                <p>Comfortable for small groups or families, seats up to 4.</p>
+                <label for="compact-days">Select rental duration:</label>
+                <select id="compact-days" onchange="updatePrice('compact-days', 'compact-price', 50)">
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3">3 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="7">7 Days</option>
+                </select>
+                <p>Price: ₹<span id="compact-price">2000</span></p>
+                <button onclick="bookVehicle('Compact 4-Seater')">Book Now</button>
+            </div>
+
+            <!-- SUV 6-Seater Vehicle -->
+            <div class="vehicle-card">
+                <img src="https://www.chariotsforhire.com/wp-content/uploads/2020/05/6-Passenger-Suburban-Luxury-SUV-768x298.jpg" alt="SUV 6-Seater">
+                <h3>SUV 6-Seater</h3>
+                <p>Spacious and comfortable, ideal for medium groups, seats up to 6.</p>
+                <label for="compact-days">Select rental duration:</label>
+                <select id="compact-days" onchange="updatePrice('compact-days', 'compact-price', 50)">
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3">3 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="7">7 Days</option>
+                </select>
+                <p>Price: ₹<span id="compact-price">3500</span></p>
+                <button onclick="bookVehicle('SUV 6-Seater', 'compact-price')">Book Now</button>
+            </div>
+
+            <!-- Luxury Van (8-Seater) -->
+            <div class="vehicle-card">
+                <img src="https://th.bing.com/th/id/OIP.SN_c0y6pB6OzhRmMi25ZegHaEK?w=313&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7.jpg" alt="Luxury Van">
+                <h3>Luxury Van</h3>
+                <p>Premium features and comfort for larger groups, seats up to 12.</p>
+                <label for="compact-days">Select rental duration:</label>
+                <select id="compact-days" onchange="updatePrice('compact-days', 'compact-price', 50)">
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3">3 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="7">7 Days</option>
+                </select>
+                <p>Price: ₹<span id="compact-price">6500</span></p>
+                <button onclick="bookVehicle('Luxury Van')">Book Now</button>
+            </div>
+
+            <!-- Mini Bus (12-Seater) -->
+            <div class="vehicle-card">
+                <img src="https://th.bing.com/th/id/OIP.Cqnyryh7PFvxzUdIR6e1BgHaHp?w=491&h=507&rs=1&pid=ImgDetMain.jpg" alt="Mini Bus">
+                <h3>Mini Bus</h3>
+                <p>Ideal for large groups and extended trips, seats up to 17.</p>
+                <label for="compact-days">Select rental duration:</label>
+                <select id="compact-days" onchange="updatePrice('compact-days', 'compact-price', 50)">
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3">3 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="7">7 Days</option>
+                </select>
+                <p>Price: ₹<span id="compact-price">11000</span></p>
+                <button onclick="bookVehicle('Mini Bus')">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section with Border -->
+    <section id="payment-section">
+        <div class="payment-container">
+            <h2>Payment Details</h2>
+            
+            <!-- Vehicle selection dropdown -->
+            <div class="vehicle-selection">
+                <label for="vehicle">Choose a vehicle:</label>
+                <select id="vehicle" onchange="updateAmount()">
+                    <option value="compact">Compact 4 Seater - ₹2000/day</option>
+                    <option value="suv">SUV-6 Seater - ₹3500/day</option>
+                    <option value="luxury">Luxury Van - ₹6500/day</option>
+                    <option value="minivan">Minivan - ₹8500/day</option>
+                </select>
+            </div>
+    
+            <!-- Number of days selection -->
+            <div class="days-selection">
+                <label for="days">Select number of days:</label>
+                <select id="days" onchange="updateAmount()">
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3">3 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="7">7 Days</option>
+                </select>
+            </div>
+    
+            <div class="payment-details">
+                <label for="amount">Amount: ₹</label>
+                <input type="text" id="amount" value="2000" readonly><br><br>
+    
+                <!-- Payment Methods -->
+                <div class="payment-options">
+                    <div>
+                        <input type="radio" id="debit-card" name="payment-method" value="debit-card">
+                        <label for="debit-card">Debit Card</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="credit-card" name="payment-method" value="credit-card">
+                        <label for="credit-card">Credit Card</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="online-payment" name="payment-method" value="online-payment">
+                        <label for="online-payment">Online Payment</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="net-banking" name="payment-method" value="net-banking">
+                        <label for="net-banking">Net Banking</label>
+                    </div>
+                </div>
+    
+                <button id="checkout-button">Proceed to Payment</button>
+            </div>
+        </div>
+    </section>
+        <!-- Contact Us Section with Details -->
+        <section id="contact-us">
+            <div class="contact-container">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or need assistance, feel free to reach out to us!</p>
+                
+                <!-- Contact Form -->
+                <form id="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+
+                <!-- Contact Details -->
+                <div class="contact-details">
+                    <h3>Details</h3>
+                    <ul>
+                        <li><strong>Name:</strong> Praneeth</li>
+                        <li><strong>Location:</strong> Warangal, Telanagna, India</li>
+                        <li><strong>Address:</strong> Shiva Nagar, Warangal, India</li>
+                        <li><strong>Cell Number:</strong> 91xxxxxxxx</li>
+                        <li><strong>Email:</strong> vechorentals@company.com</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        
+    <script src="travel.js"></script>
+</body>
+</html>
